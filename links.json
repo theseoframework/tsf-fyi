@@ -1,0 +1,129 @@
+{
+	"contributing": "https://github.com/sybrew/the-seo-framework/blob/master/.github/CONTRIBUTING.md",
+	"shortlinks": "https://tsf.fyi/links.json",
+	"kb": {
+		"_alt": [
+			"knowledge",
+			"knowledgebase",
+			"knowledge-base"
+		],
+		"_deep": {
+			"$$": "https://kb.theseoframework.com/kb/$$/"
+		},
+		"_default": "https://kb.theseoframework.com/kb/"
+	},
+	"docs": {
+		"_alt": [
+			"tuts"
+		],
+		"_deep": {
+			"migrate": "https://theseoframework.com/docs/seo-data-migration/",
+			"setup":   "https://theseoframework.com/docs/seo-plugin-setup/",
+			"improve": "https://theseoframework.com/docs/improve-your-pages/",
+			"api": {
+				"_deep": {
+					"constants":   "https://theseoframework.com/docs/api/constants/",
+					"filters":     "https://theseoframework.com/docs/api/filters/",
+					"actions":     "https://theseoframework.com/docs/api/actions/",
+					"emconstants": "https://theseoframework.com/docs/api/em/constants/"
+				},
+				"_default": "https://theseoframework.com/docs/api/"
+			}
+		},
+		"_default": "https://theseoframework.com/docs/"
+	},
+	"github": {
+		"_alt": [
+			"gh",
+			"git"
+		],
+		"_deep": {
+			"tsf": {
+				"_deep": {
+					"$$": "https://github.com/sybrew/the-seo-framework/$$"
+				},
+				"_default": "https://github.com/sybrew/the-seo-framework"
+			},
+			"em":  {
+				"_deep": {
+					"$$": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager/$$"
+				},
+				"_default": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager"
+			},
+			"fyi":  {
+				"_deep": {
+					"$$": "https://github.com/sybrew/tsf-fyi/$$"
+				},
+				"_default": "https://github.com/sybrew/tsf-fyi"
+			}
+		},
+		"_default": "https://github.com/sybrew/the-seo-framework"
+	},
+	"extensions": {
+		"_alt": [
+			"e",
+			"ext",
+			"extension"
+		],
+		"_deep": {
+			"$": "https://theseoframework.com/extensions/$/"
+		},
+		"_default": "https://theseoframework.com/extensions/"
+	},
+	"extension-manager": {
+		"_alt": [
+			"em"
+		],
+		"_default": "https://theseoframework.com/extension-manager/"
+	},
+	"reviews": {
+		"_alt": [
+			"r",
+			"reviews"
+		],
+		"_deep": {
+			"wp": "https://wordpress.org/support/plugin/autodescription/reviews/"
+		},
+		"_default": "https://theseoframework.com/what-others-say/"
+	},
+	"download": {
+		"_alt": [
+			"dl"
+		],
+		"_deep": {
+			"em": {
+				"_alt": [
+					"extension-manager"
+				],
+				"_default": "https://dl.theseoframework.com/get/plugin/latest/"
+			},
+			"tsf": {
+				"_alt": [
+					"the-seo-framework"
+				],
+				"_default": "https://downloads.wordpress.org/plugin/autodescription.latest-stable.zip"
+			}
+		}
+	},
+	"account": {
+		"_alt": [
+			"my-account"
+		],
+		"_deep": {
+			"eu": "https://eu.theseoframework.com/my-account/"
+		},
+		"_default": "https://premium.theseoframework.com/my-account/"
+	},
+	"premium": {
+		"_alt": [
+			"shop",
+			"license",
+			"get-license"
+		],
+		"_deep": {
+			"eu": "https://eu.theseoframework.com/get-license/",
+			"many": "https://premium.theseoframework.com/get-many-sites-license/"
+		},
+		"_default": "https://premium.theseoframework.com/get-license/"
+	}
+}

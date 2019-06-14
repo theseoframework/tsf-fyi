@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Could not resolve endpoint - tsf.fyi</title>
+	<meta http-equiv=refresh content="5; url=https://theseoframework.com/" />
+	<link rel=canonical href=https://theseoframework.com/ />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		html {
+			background: #000;
+		}
+		body {
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background: #919ea1;
+			font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+			font-size: 16px;
+    		line-height: 1.625em;
+			color: #333;
+			margin: 0;
+		}
+		#wrap {
+			padding: 2em;
+			background: #fff;
+			border: 1px solid #465053;
+			margin: 1em auto;
+			border-radius: 3px;
+			box-shadow: 0 0 1em #465053;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+		a {
+			color: inherit;
+		}
+		#timer {
+			font-family: monospace;
+			width: 3em;
+		}
+	</style>
+</head>
+<body>
+	<div id=wrap>
+		<h1>Could not resolve endpoint</h1>
+		<p>Redirecting to <a href="https://theseoframework.com/">The SEO Framework</a> in <span id=timer>5</span> seconds.</p>
+	</div>
+	<script>
+	let time = 5, t = document.getElementById( 'timer' ), innerHTML = '';
+	setInterval( () => {
+		innerHTML = --time > 0 ? time : time < -3 ? '???' : ( '.'.repeat( Math.min( 3, Math.abs( time ) ) ) ) || 0;
+		if ( t.innerHTML !== innerHTML ) t.innerHTML = innerHTML;
+	}, 1000 );
+	</scripT>
+</body>
+</html>
