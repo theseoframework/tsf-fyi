@@ -1,5 +1,15 @@
 {
 	"contributing": "https://github.com/sybrew/the-seo-framework/blob/master/.github/CONTRIBUTING.md",
+	"man": {
+		"_alt": [
+			"about",
+			"manual"
+		],
+		"_deep": {
+			"links": "https://raw.githubusercontent.com/sybrew/tsf-fyi/master/links.json"
+		},
+		"_default": "https://github.com/sybrew/tsf-fyi"
+	},
 	"shortlinks": "https://tsf.fyi/links.json",
 	"kb": {
 		"_alt": [
@@ -14,7 +24,8 @@
 	},
 	"docs": {
 		"_alt": [
-			"tuts"
+			"tuts",
+			"help"
 		],
 		"_deep": {
 			"migrate": "https://theseoframework.com/docs/seo-data-migration/",
@@ -121,9 +132,46 @@
 			"get-license"
 		],
 		"_deep": {
-			"eu": "https://eu.theseoframework.com/get-license/",
-			"many": "https://premium.theseoframework.com/get-many-sites-license/"
+			"eu":      "https://eu.theseoframework.com/get-license/",
+			"many":    "https://premium.theseoframework.com/get-many-sites-license/",
+			"support": "https://premium.theseoframework.com/support/"
 		},
 		"_default": "https://premium.theseoframework.com/get-license/"
+	},
+	"contact": {
+		"_alt": [
+			"plzhelpurgent"
+		],
+		"_deep": {
+			"premium": "https://premium.theseoframework.com/support/"
+		},
+		"_default": "https://theseoframework.com/contact/"
+	},
+	"support": {
+		"_alt": [
+			"forum",
+			"forums"
+		],
+		"_default": "https://wordpress.org/support/plugin/autodescription/"
+	},
+	"twitter": {
+		"_alt": [
+			"t"
+		],
+		"_deep": {
+			"sybre": {
+				"_alt": [
+					"sw"
+				],
+				"_default": "https://twitter.com/SybreWaaijer"
+			},
+			"lebaux": {
+				"_alt": [
+					"pl"
+				],
+				"_default": "https://twitter.com/lebaux"
+			}
+		},
+		"_default": "https://twitter.com/TheSEOFramework"
 	}
 }
