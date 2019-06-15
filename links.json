@@ -105,6 +105,13 @@
 		},
 		"_default": "https://theseoframework.com/what-others-say/"
 	},
+	"review": {
+		"_alt": [
+			"leavereview",
+			"leave-review"
+		],
+		"_default": "https://wordpress.org/support/plugin/autodescription/reviews/#new-post"
+	},
 	"download": {
 		"_alt": [
 			"dl"
@@ -161,6 +168,19 @@
 			"forums"
 		],
 		"_default": "https://wordpress.org/support/plugin/autodescription/"
+	},
+	"tos": {
+		"_alt": [
+			"terms"
+		],
+		"_default": "https://theseoframework.com/terms/"
+	},
+	"refundpolicy": "https://theseoframework.com/refund-policy/",
+	"privacy": {
+		"_deep": {
+			"plugin": "https://theseoframework.com/privacy-policy/#pluginprivacyinformation"
+		},
+		"_default": "https://theseoframework.com/privacy-policy/"
 	},
 	"twitter": {
 		"_alt": [

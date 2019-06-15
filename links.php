@@ -14,39 +14,55 @@ $json = json_decode(
 if ( ! $json ) {
 	header( 'Cache-Control: max-age=30', true );
 	http_response_code( 503 );
-	echo 'Something went wrong parsing the links. Try again later.';
+	printf(
+		'Something went wrong parsing the links. Try again later. %s',
+		sprintf( 'Generation ID: %s', bin2hex( random_bytes( 8 ) ) )
+	);
 	exit;
 }
 
-function loop_json( stdClass $json, array $basepoints = [] ) {
+function loop_json( stdClass $json, array $basepoints = [], int $depth = 0 ) {
 	foreach ( $json as $_endpoint => $_json ) {
 		if ( is_string( $_json ) ) {
-			yield from make_link( $basepoints, $_endpoint, $_json );
+			yield from make_link( $basepoints, $_endpoint, $_json, $depth );
 		} else {
 			if ( $_json->_default ?? '' ) {
-				yield from make_link( $basepoints, $_endpoint, $_json->_default );
+				yield from make_link( $basepoints, $_endpoint, $_json->_default, $depth );
 			}
 			foreach ( $_json->_alt ?? [] as $_alt ) {
-				yield from make_alt_link( $basepoints, $_alt, $_endpoint );
+				if ( $_json->_default ?? '' ) {
+					yield from make_alt_link( $basepoints, $_alt, $_endpoint, $depth + 1 );
+				} else {
+					yield from make_alt_link( $basepoints, $_alt, $_endpoint, $depth );
+				}
 			}
 			if ( isset( $_json->_deep ) ) {
-				yield from loop_json( $_json->_deep, array_merge( $basepoints, [ $_endpoint ] ) );
+				yield from loop_json( $_json->_deep, array_merge( $basepoints, [ $_endpoint ] ), $depth + 1 );
 			}
 		}
 	}
 }
 
-function make_link( array $basepoints, $endpoint, $link ) {
+function make_link( array $basepoints, string $endpoint, string $link, int $depth ) {
 	$endpoint = false !== strpos( $endpoint, '$' ) ? sprintf( '<em class="noselect underline">%s</em>', $endpoint ) : $endpoint;
-	yield
-		sprintf( '<strong>%s</strong>', 'https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$endpoint", '/' ) )
-		=> $link;
+	yield sprintf(
+		'%s<strong data-type=link>%s</strong>',
+		$depth ? sprintf( '<span class=noselect>%s&mdash; </span>', str_repeat( '&emsp; ', $depth - 1 ) ) : '',
+		'https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$endpoint", '/' )
+	)
+	=> $link;
 }
 
-function make_alt_link( array $basepoints, $altendpoint, $altfor ) {
-	yield
-		'<span class=noselect>&mdash; </span>https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$altendpoint", '/' )
-		=> sprintf( '<em>%s</em>', 'https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$altfor", '/' ) );
+function make_alt_link( array $basepoints, string $altendpoint, string $altfor, int $depth ) {
+	yield sprintf(
+		'%s<span data-type=link>%s</span>',
+		$depth ? sprintf( '<span class=noselect>%s</span>', str_repeat( '&emsp; ', $depth ) ) : '',
+		'https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$altendpoint", '/' )
+	)
+	=> sprintf(
+		'<em>%s</em>',
+		'https://tsf.fyi/' . ltrim( implode( '/', $basepoints ) . "/$altfor", '/' )
+	);
 }
 
 $icon = <<<'ICON'
@@ -148,7 +164,7 @@ ICON;
 				fill: #0ebfe9
 			}
 			table, td, th {
-				border: 1px solid #222
+				border: 1px solid #969a93
 			}
 			table {
 				border-collapse: collapse;
@@ -161,14 +177,14 @@ ICON;
 			th, td {
 				padding: .25em .5em
 			}
-			.underline {
-				text-decoration: underline
-			}
 			.noselect {
 				-webkit-user-select: none;
 				-moz-user-select: none;
 				-ms-user-select: none;
 				user-select: none
+			}
+			.underline {
+				text-decoration: underline
 			}
 		</style>
 	</head>
@@ -177,29 +193,54 @@ ICON;
 			<h1><a href=https://tsf.fyi/links.php><?php echo $icon; ?>TSF.fyi</a> registered endpoints</h1>
 			<p>
 				<em><strong>$</strong> = single directory wildcard. <strong>$$</strong> = unlimited directory wildcard.</em><br>
+				<em>Bolded endpoints are canonical, others are alternatives; either may trickle down for deeper links.</em>
 			</p>
 			<table>
-				<tr>
-					<th>
-						Endpoint
-					</th>
-					<th>
-						Link
-					</th>
-				</tr>
-<?php
-foreach ( loop_json( $json ) as $_endpoint => $_result ) {
-	vprintf(
-		"\t\t\t\t<tr><td>%s</td><td>%s</td></tr>",
-		[
-			$_endpoint,
-			$_result
-		]
-	);
-}
-?>
+				<tr><th>Endpoint</th><th>Link</th></tr>
+				<?php
+				foreach ( loop_json( $json ) as $_endpoints => $_result ) {
+					vprintf(
+						"\t\t\t\t<tr><td>%s</td><td>%s</td></tr>\n",
+						[
+							$_endpoints,
+							$_result
+						]
+					);
+				}
+				?>
 			</table>
 		</main>
+		<script>
+			(()=>{
+				document.body.addEventListener( 'dblclick', function( event ) {
+					if ( ! event.target.dataset || ! event.target.dataset.type ) return;
+					if ( 'link' === event.target.dataset.type ) {
+						event.preventDefault();
+
+						let range     = document.createRange(),
+							selection = window.getSelection();
+
+						if ( selection.rangeCount > 0 )
+							selection.removeAllRanges();
+
+						range.selectNode( event.target );
+						selection.addRange( range );
+						document.execCommand( 'copy' );
+
+						let oldHTML = event.target.innerHTML;
+
+						setTimeout( () => {
+							event.target.innerHTML = 'Copied to clipboard!';
+							setTimeout( () => {
+								event.target.innerHTML = oldHTML;
+								// document.getSelection().removeAllRanges();
+							}, 1000 );
+						}, 200 );
+
+					}
+				} );
+			})();
+		</script>
 		<footer>
 			<p>
 			<?php
