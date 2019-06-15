@@ -32,7 +32,7 @@ if ( ( $_GET['error'] ?? false ) ) {
 	exit;
 }
 
-function retry() {
+function retry(): void {
 	// Retry after 1s.
 	$retry = ( $_GET['r'] ?? 0 ) + 1;
 
@@ -113,7 +113,7 @@ function find_endpoint( stdClass $json, array $r ): string {
 	}
 
 	return $endpoint ?? $default;
-};
+}
 
 $location = find_endpoint( $json, $r ) ?: '';
 
