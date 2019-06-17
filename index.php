@@ -27,6 +27,7 @@ header( 'Pragma: public' );
 
 if ( ( $_GET['error'] ?? false ) ) {
 	header( 'X-Robots-Tag: noindex, follow', true );
+	header( 'Cache-Control: max-age=60', true );
 	http_response_code( 503 );
 	require __DIR__ . DIRECTORY_SEPARATOR . '503.html';
 	exit;
@@ -62,7 +63,7 @@ $request = preg_replace(
 	'/[^a-z0-9_\/%\-]/',
 	'',
 	strtolower( substr_replace( $_SERVER['REQUEST_URI'], '', 0, strlen( dirname( $_SERVER['PHP_SELF'] ) ) ) )
-);
+) ?: 'links';
 
 $r = array_values( array_filter( explode( '/', $request ) ) );
 
@@ -119,7 +120,7 @@ $location = find_endpoint( $json, $r ) ?: '';
 
 if ( ! $location ) :
 	header( 'X-Robots-Tag: noindex, follow', true );
-	http_response_code( 200 );
+	http_response_code( 404 );
 	require __DIR__ . DIRECTORY_SEPARATOR . '404.html';
 	exit;
 endif;

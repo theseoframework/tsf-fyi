@@ -136,7 +136,13 @@
 			"my-account"
 		],
 		"_deep": {
-			"eu": "https://eu.theseoframework.com/my-account/"
+			"keys": "https://premium.theseoframework.com/my-account/my-api-keys/",
+			"eu": {
+				"_deep": {
+					"keys": "https://eu.theseoframework.com/my-account/my-api-keys/"
+				},
+				"_default": "https://eu.theseoframework.com/my-account/"
+			}
 		},
 		"_default": "https://premium.theseoframework.com/my-account/"
 	},

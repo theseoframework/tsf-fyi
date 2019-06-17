@@ -212,7 +212,13 @@ ICON;
 		</main>
 		<script>
 			(()=>{
+				let blocked = false;
+				document.addEventListener( 'copy', ( event ) => {
+					blocked || event.clipboardData.setData( 'text/plain', document.getSelection().toString() );
+					event.preventDefault();
+				} );
 				document.body.addEventListener( 'dblclick', function( event ) {
+					blocked = false;
 					if ( ! event.target.dataset || ! event.target.dataset.type ) return;
 					if ( 'link' === event.target.dataset.type ) {
 						event.preventDefault();
@@ -230,10 +236,11 @@ ICON;
 						let oldHTML = event.target.innerHTML;
 
 						setTimeout( () => {
+							blocked = true;
 							event.target.innerHTML = 'Copied to clipboard!';
 							setTimeout( () => {
 								event.target.innerHTML = oldHTML;
-								// document.getSelection().removeAllRanges();
+								blocked = false;
 							}, 1000 );
 						}, 200 );
 
