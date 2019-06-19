@@ -8,7 +8,6 @@
 	},
 	"man": {
 		"_alt": [
-			"about",
 			"manual"
 		],
 		"_deep": {
@@ -77,6 +76,17 @@
 			}
 		},
 		"_default": "https://github.com/sybrew/the-seo-framework"
+	},
+	"plugin": {
+		"_deep": {
+			"extension-manager": {
+				"_alt": [
+					"em"
+				],
+				"_default": "https://theseoframework.com/extension-manager/"
+			}
+		},
+		"_default": "https://wordpress.org/plugins/autodescription/"
 	},
 	"extensions": {
 		"_alt": [
@@ -158,6 +168,9 @@
 			"support": "https://premium.theseoframework.com/support/"
 		},
 		"_default": "https://premium.theseoframework.com/get-license/"
+	},
+	"about": {
+		"_default": "https://theseoframework.com/about-us/"
 	},
 	"contact": {
 		"_alt": [

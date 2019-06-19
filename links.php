@@ -219,32 +219,32 @@ ICON;
 				} );
 				document.body.addEventListener( 'dblclick', function( event ) {
 					blocked = false;
+
 					if ( ! event.target.dataset || ! event.target.dataset.type ) return;
-					if ( 'link' === event.target.dataset.type ) {
-						event.preventDefault();
+					if ( 'link' !== event.target.dataset.type ) return;
 
-						let range     = document.createRange(),
-							selection = window.getSelection();
+					event.preventDefault();
 
-						if ( selection.rangeCount > 0 )
-							selection.removeAllRanges();
+					let range     = document.createRange(),
+						selection = window.getSelection();
 
-						range.selectNode( event.target );
-						selection.addRange( range );
-						document.execCommand( 'copy' );
+					if ( selection.rangeCount > 0 )
+						selection.removeAllRanges();
 
-						let oldHTML = event.target.innerHTML;
+					range.selectNode( event.target );
+					selection.addRange( range );
+					document.execCommand( 'copy' );
 
+					let oldHTML = event.target.innerHTML;
+
+					setTimeout( () => {
+						blocked = true;
+						event.target.innerHTML = 'Copied to clipboard!';
 						setTimeout( () => {
-							blocked = true;
-							event.target.innerHTML = 'Copied to clipboard!';
-							setTimeout( () => {
-								event.target.innerHTML = oldHTML;
-								blocked = false;
-							}, 1000 );
-						}, 200 );
-
-					}
+							event.target.innerHTML = oldHTML;
+							blocked = false;
+						}, 1000 );
+					}, 200 );
 				} );
 			})();
 		</script>
