@@ -38,6 +38,7 @@
 			"migrate": "https://theseoframework.com/docs/seo-data-migration/",
 			"setup":   "https://theseoframework.com/docs/seo-plugin-setup/",
 			"improve": "https://theseoframework.com/docs/improve-your-pages/",
+			"filters": "https://theseoframework.com/docs/using-filters/",
 			"api": {
 				"_deep": {
 					"constants":   "https://theseoframework.com/docs/api/constants/",

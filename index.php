@@ -34,8 +34,7 @@ if ( ( $_GET['error'] ?? false ) ) {
 }
 
 function retry(): void {
-	// Retry after 1s.
-	$retry = ( $_GET['r'] ?? 0 ) + 1;
+	$retry = (int) ( $_GET['r'] ?? 0 ) + 1;
 
 	if ( $retry > 3 ) {
 		$location = "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}/";
@@ -47,6 +46,7 @@ function retry(): void {
 		exit;
 	}
 
+	// Redirect after 250ms.
 	usleep( 2.5e5 );
 	header( 'X-Redirect-By: tsf.fyi' );
 	header( 'X-Retry-Request: true' );
@@ -107,8 +107,11 @@ function find_endpoint( stdClass $json, array $r ): string {
 				$endpoint = $next;
 			} elseif ( $next ) {
 				$endpoint = $next->_default ?? $default;
+			} else {
+				// Nothing found, always abort to prevent unwanted recursion and DDoS.
+				break;
 			}
-			// Nothing found, always abort to prevent unwanted recursion and DDoS.
+			// We're done here.
 			break;
 		}
 	}
