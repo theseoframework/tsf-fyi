@@ -17,6 +17,16 @@
 		"_default": "https://github.com/sybrew/tsf-fyi"
 	},
 	"contributing": "https://github.com/sybrew/the-seo-framework/blob/master/.github/CONTRIBUTING.md",
+	"p": {
+		"_deep": {
+			"$": "https://theseoframework.com/?p=$"
+		}
+	},
+	"s": {
+		"_deep": {
+			"$": "https://theseoframework.com/search/$/"
+		}
+	},
 	"kb": {
 		"_alt": [
 			"knowledge",
@@ -50,6 +60,24 @@
 			}
 		},
 		"_default": "https://theseoframework.com/docs/"
+	},
+	"changelog": {
+		"_deep": {
+			"em": {
+				"_deep": {
+					"$": "https://theseoframework.com/em-changelog/$/"
+				},
+				"_default": "https://theseoframework.com/em-changelog/"
+			},
+			"tsf": {
+				"_deep": {
+					"$": "https://theseoframework.com/changelog/$/"
+				},
+				"_default": "https://theseoframework.com/changelog/"
+			},
+			"$": "https://theseoframework.com/changelog/$/"
+		},
+		"_default": "https://theseoframework.com/changelog/"
 	},
 	"github": {
 		"_alt": [
@@ -172,6 +200,18 @@
 	},
 	"about": {
 		"_default": "https://theseoframework.com/about-us/"
+	},
+	"blog": {
+		"_deep": {
+			"$$": "https://theseoframework.com/about/$$"
+		},
+		"_default": "https://theseoframework.com/category/about/"
+	},
+	"press": {
+		"_deep": {
+			"$$": "https://theseoframework.com/press/$$"
+		},
+		"_default": "https://theseoframework.com/category/press/"
 	},
 	"contact": {
 		"_alt": [
