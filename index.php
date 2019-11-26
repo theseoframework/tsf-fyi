@@ -67,8 +67,6 @@ $request = preg_replace(
 
 $r = array_values( array_filter( explode( '/', $request ) ) );
 
-/**
- */
 function find_endpoint( stdClass $json, array $r ): string {
 
 	$default = '';

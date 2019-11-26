@@ -85,19 +85,34 @@
 			"git"
 		],
 		"_deep": {
+			"org": {
+				"_alt": [
+					"o"
+				],
+				"_default": "https://github.com/theseoframework"
+			},
+			"s": {
+				"_alt": [
+					"sw"
+				],
+				"_default": "https://github.com/sybrew"
+			},
+			"lbx": {
+				"_default": "https://github.com/lebaux"
+			},
 			"tsf": {
 				"_deep": {
 					"$$": "https://github.com/sybrew/the-seo-framework/$$"
 				},
 				"_default": "https://github.com/sybrew/the-seo-framework"
 			},
-			"em":  {
+			"em": {
 				"_deep": {
 					"$$": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager/$$"
 				},
 				"_default": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager"
 			},
-			"fyi":  {
+			"fyi": {
 				"_deep": {
 					"$$": "https://github.com/sybrew/tsf-fyi/$$"
 				},
