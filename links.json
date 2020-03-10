@@ -151,8 +151,7 @@
 	},
 	"reviews": {
 		"_alt": [
-			"r",
-			"reviews"
+			"r"
 		],
 		"_deep": {
 			"wp": "https://wordpress.org/support/plugin/autodescription/reviews/"
@@ -208,7 +207,12 @@
 		],
 		"_deep": {
 			"eu":      "https://eu.theseoframework.com/get-license/",
-			"many":    "https://premium.theseoframework.com/get-many-sites-license/",
+			"volume":  {
+				"_alt": [
+					"many"
+				],
+				"_default": "https://premium.theseoframework.com/get-volume-license/"
+			},
 			"support": "https://premium.theseoframework.com/support/"
 		},
 		"_default": "https://premium.theseoframework.com/get-license/"
@@ -238,11 +242,50 @@
 		"_default": "https://theseoframework.com/contact/"
 	},
 	"support": {
-		"_alt": [
-			"forum",
-			"forums"
-		],
-		"_default": "https://wordpress.org/support/plugin/autodescription/"
+		"_deep": {
+			"codeable": "https://codeable.io/partners/the-seo-framework/",
+			"github": {
+				"_alt": [
+					"feature",
+					"request-feature"
+				],
+				"_default": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager/issues/new/choose"
+			},
+			"tsf": {
+				"_alt": [
+					"wp",
+					"public-tsf",
+					"forum",
+					"voluntary"
+				],
+				"_deep": {
+					"new-topic": "https://wordpress.org/support/plugin/autodescription/#new-topic-0"
+				},
+				"_default": "https://wordpress.org/support/plugin/autodescription/"
+			},
+			"em": {
+				"_alt": [
+					"public-em"
+				],
+				"_deep": {
+					"private": "https://theseoframework.com/contact/"
+				},
+				"_default": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager/issues/new/choose"
+			},
+			"billing": {
+				"_deep": {
+					"refund": "https://premium.theseoframework.com/support/"
+				},
+				"_default": "https://theseoframework.com/refund-policy/"
+			},
+			"contact": {
+				"_alt": [
+					"email"
+				],
+				"_default": "https://theseoframework.com/contact/"
+			}
+		},
+		"_default": "https://theseoframework.com/support/"
 	},
 	"tos": {
 		"_alt": [
