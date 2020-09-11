@@ -96,6 +96,7 @@ ICON;
 	<head>
 		<title>TSF.fyi links</title>
 		<meta name=viewport content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="nofollow,max-snippet:-1,max-image-preview:standard,max-video-preview:0" />
 		<style>
 			body {
 				min-height: 100vh;

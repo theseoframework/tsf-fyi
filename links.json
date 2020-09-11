@@ -1,4 +1,14 @@
 {
+	"p": {
+		"_deep": {
+			"$": "https://theseoframework.com/?p=$"
+		}
+	},
+	"s": {
+		"_deep": {
+			"$": "https://theseoframework.com/search/$/"
+		}
+	},
 	"links": {
 		"_alt": [
 			"endpoint",
@@ -17,16 +27,6 @@
 		"_default": "https://github.com/sybrew/tsf-fyi"
 	},
 	"contributing": "https://github.com/sybrew/the-seo-framework/blob/master/.github/CONTRIBUTING.md",
-	"p": {
-		"_deep": {
-			"$": "https://theseoframework.com/?p=$"
-		}
-	},
-	"s": {
-		"_deep": {
-			"$": "https://theseoframework.com/search/$/"
-		}
-	},
 	"kb": {
 		"_alt": [
 			"knowledge",
@@ -34,7 +34,16 @@
 			"knowledge-base"
 		],
 		"_deep": {
-			"$$": "https://kb.theseoframework.com/kb/$$/"
+			"$$": "https://kb.theseoframework.com/kb/$$/",
+			"a": {
+				"_alt": [
+					"article",
+					"entry"
+				],
+				"_deep": {
+					"$": "https://kb.theseoframework.com/?p=$"
+				}
+			}
 		},
 		"_default": "https://kb.theseoframework.com/kb/"
 	},
@@ -160,6 +169,7 @@
 	},
 	"review": {
 		"_alt": [
+			"rate",
 			"leavereview",
 			"leave-review"
 		],
@@ -199,23 +209,17 @@
 		},
 		"_default": "https://premium.theseoframework.com/my-account/"
 	},
-	"premium": {
+	"pricing": {
 		"_alt": [
 			"shop",
+			"premium",
 			"license",
 			"get-license"
 		],
 		"_deep": {
-			"eu":      "https://eu.theseoframework.com/get-license/",
-			"volume":  {
-				"_alt": [
-					"many"
-				],
-				"_default": "https://premium.theseoframework.com/get-volume-license/"
-			},
 			"support": "https://premium.theseoframework.com/support/"
 		},
-		"_default": "https://premium.theseoframework.com/get-license/"
+		"_default": "https://theseoframework.com/pricing/"
 	},
 	"about": {
 		"_default": "https://theseoframework.com/about-us/"
@@ -259,7 +263,12 @@
 					"voluntary"
 				],
 				"_deep": {
-					"new-topic": "https://wordpress.org/support/plugin/autodescription/#new-topic-0"
+					"new-topic": {
+						"_alt": [
+							"new"
+						],
+						"_default": "https://wordpress.org/support/plugin/autodescription/#new-topic-0"
+					}
 				},
 				"_default": "https://wordpress.org/support/plugin/autodescription/"
 			},
@@ -274,9 +283,9 @@
 			},
 			"billing": {
 				"_deep": {
-					"refund": "https://premium.theseoframework.com/support/"
+					"refund": "https://theseoframework.com/refund-policy/"
 				},
-				"_default": "https://theseoframework.com/refund-policy/"
+				"_default": "https://premium.theseoframework.com/support/"
 			},
 			"contact": {
 				"_alt": [
