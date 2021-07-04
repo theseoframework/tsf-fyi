@@ -21,10 +21,10 @@
 			"manual"
 		],
 		"_deep": {
-			"rawlinks": "https://raw.githubusercontent.com/sybrew/tsf-fyi/master/links.json",
+			"rawlinks": "https://raw.githubusercontent.com/theseoframework/tsf-fyi/master/links.json",
 			"home":     "https://tsf.fyi/links.php"
 		},
-		"_default": "https://github.com/sybrew/tsf-fyi"
+		"_default": "https://github.com/theseoframework/tsf-fyi"
 	},
 	"contributing": "https://github.com/sybrew/the-seo-framework/blob/master/.github/CONTRIBUTING.md",
 	"kb": {
@@ -123,9 +123,9 @@
 			},
 			"fyi": {
 				"_deep": {
-					"$$": "https://github.com/sybrew/tsf-fyi/$$"
+					"$$": "https://github.com/theseoframework/tsf-fyi/$$"
 				},
-				"_default": "https://github.com/sybrew/tsf-fyi"
+				"_default": "https://github.com/theseoframework/tsf-fyi"
 			}
 		},
 		"_default": "https://github.com/sybrew/the-seo-framework"
