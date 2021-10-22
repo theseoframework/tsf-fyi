@@ -43,7 +43,13 @@
 				"_deep": {
 					"$": "https://kb.theseoframework.com/?p=$"
 				}
-			}
+			},
+			"headless": "https://kb.theseoframework.com/kb/headless-mode/",
+			"sitemap": "https://kb.theseoframework.com/kb/all-you-must-know-about-sitemaps/",
+			"wpml": "https://kb.theseoframework.com/kb/translation-plugin-compatibility/#same-site",
+			"install-em": "https://kb.theseoframework.com/kb/how-to-install-the-extension-manager/",
+			"pixelcounter": "https://kb.theseoframework.com/kb/what-are-pixel-counters/",
+			"structureddata": "https://kb.theseoframework.com/kb/structured-data-supported-by-the-seo-framework/"
 		},
 		"_default": "https://kb.theseoframework.com/kb/"
 	},
