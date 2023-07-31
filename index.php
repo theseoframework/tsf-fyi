@@ -17,7 +17,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( empty( $_SERVER['SCRIPT_URI'] ) ) {
+// Discourage direct index file access.
+if ( '/index.php' === $_SERVER['REQUEST_URI'] ) {
 	http_response_code( 503 );
 	exit;
 }
@@ -60,7 +61,7 @@ $json = json_decode(
 ) or retry();
 
 $request = preg_replace(
-	'/[^a-z0-9_\/%\-]/',
+	'/[^a-z0-9_\/%\-\.]+/',
 	'',
 	strtolower( substr_replace( $_SERVER['REQUEST_URI'], '', 0, strlen( dirname( $_SERVER['PHP_SELF'] ) ) ) )
 ) ?: 'links';

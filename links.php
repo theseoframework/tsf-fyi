@@ -1,6 +1,6 @@
 <?php
 
-$timer = microtime( true );
+$timer = hrtime( true );
 
 header( 'Cache-Control: max-age=3600', true );
 header( 'Pragma: public' );
@@ -256,7 +256,7 @@ ICON;
 				'Powered by %s &bull; Generated in %s microseconds &bull; Generation ID: <code>%s</code>',
 				[
 					'<a href=https://theseoframework.com/>The SEO Framework</a>',
-					(int) abs( ( microtime( true ) - $timer ) * 1e6 ),
+					(int) abs( ( hrtime( true ) - $timer ) / 1e3 ),
 					bin2hex( random_bytes( 16 ) ),
 				]
 			);

@@ -1,0 +1,10 @@
+# Enable rewriting engine
+RewriteEngine On
+
+# Set the base for relative path substitution
+RewriteBase /
+
+# Rewrite requests to index.php if the file or directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
