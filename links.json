@@ -50,7 +50,8 @@
 			"install-em": "https://kb.theseoframework.com/kb/how-to-install-the-extension-manager/",
 			"common-update-issues": "https://kb.theseoframework.com/kb/common-plugin-update-issues/",
 			"pixelcounter": "https://kb.theseoframework.com/kb/what-are-pixel-counters/",
-			"structureddata": "https://kb.theseoframework.com/kb/structured-data-supported-by-the-seo-framework/"
+			"structureddata": "https://kb.theseoframework.com/kb/structured-data-supported-by-the-seo-framework/",
+			"data": "https://kb.theseoframework.com/kb/data-stored-in-your-database/"
 		},
 		"_default": "https://kb.theseoframework.com/kb/"
 	},
@@ -97,6 +98,7 @@
 	},
 	"github": {
 		"_alt": [
+			"g",
 			"gh",
 			"git"
 		],
@@ -117,8 +119,19 @@
 				"_default": "https://github.com/lebaux"
 			},
 			"tsf": {
+				"_alt": [
+					"t"
+				],
 				"_deep": {
-					"$$": "https://github.com/sybrew/the-seo-framework/$$"
+					"$$": "https://github.com/sybrew/the-seo-framework/$$",
+					"version": {
+						"_deep": {
+							"$$": "https://github.com/sybrew/the-seo-framework/blob/$$"
+						},
+						"_alt": [
+							"v"
+						]
+					}
 				},
 				"_default": "https://github.com/sybrew/the-seo-framework"
 			},
@@ -250,7 +263,7 @@
 		"_deep": {
 			"premium": "https://premium.theseoframework.com/support/"
 		},
-		"_default": "https://theseoframework.com/contact/"
+		"_default": "https://theseoframework.com/support/contact/"
 	},
 	"support": {
 		"_deep": {
@@ -284,7 +297,7 @@
 					"public-em"
 				],
 				"_deep": {
-					"private": "https://theseoframework.com/contact/"
+					"private": "https://theseoframework.com/support/contact/"
 				},
 				"_default": "https://github.com/sybrew/The-SEO-Framework-Extension-Manager/issues/new/choose"
 			},
@@ -298,7 +311,7 @@
 				"_alt": [
 					"email"
 				],
-				"_default": "https://theseoframework.com/contact/"
+				"_default": "https://theseoframework.com/support/contact/"
 			}
 		},
 		"_default": "https://theseoframework.com/support/"
@@ -335,5 +348,26 @@
 			}
 		},
 		"_default": "https://twitter.com/TheSEOFramework"
+	},
+	"snippets": {
+		"_alt": [
+			"snippet"
+		],
+		"_deep": {
+			"install": {
+				"_alt": [
+					"install-guide",
+					"how-to-use"
+				],
+				"_default": "https://github.com/sybrew/tsf-snippets/blob/main/README.md#how-to-install-a-snippet"
+			},
+			"get": {
+				"_deep": {
+					"$$": "https://dl.theseoframework.com/get/snippet/$$"
+				}
+			},
+			"$$": "https://github.com/sybrew/tsf-snippets/tree/main/$$"
+		},
+		"_default": "https://github.com/sybrew/tsf-snippets"
 	}
 }

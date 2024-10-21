@@ -26,7 +26,7 @@ if ( '/index.php' === $_SERVER['REQUEST_URI'] ) {
 header( 'Cache-Control: max-age=3600', true );
 header( 'Pragma: public' );
 
-if ( ( $_GET['error'] ?? false ) ) {
+if ( $_GET['error'] ?? false ) {
 	header( 'X-Robots-Tag: noindex, follow', true );
 	header( 'Cache-Control: max-age=60', true );
 	http_response_code( 503 );
@@ -34,7 +34,7 @@ if ( ( $_GET['error'] ?? false ) ) {
 	exit;
 }
 
-function retry(): void {
+function retry() {
 	$retry = (int) ( $_GET['r'] ?? 0 ) + 1;
 
 	if ( $retry > 3 ) {
@@ -68,7 +68,7 @@ $request = preg_replace(
 
 $r = array_values( array_filter( explode( '/', $request ) ) );
 
-function find_endpoint( stdClass $json, array $r ): string {
+function find_endpoint( $json, $r ) {
 
 	$default = '';
 	$depth   = 0;
@@ -87,7 +87,7 @@ function find_endpoint( stdClass $json, array $r ): string {
 						if ( false !== strpos( $_endpoint, '$$' ) ) {
 							// Wildcard replacement.
 							$_items = array_slice( $r, $depth );
-							$next = str_replace( '$$', implode( '/', $_items ), $_json );
+							$next   = str_replace( '$$', implode( '/', $_items ), $_json );
 						} else {
 							// Prudent replacement.
 							$next = str_replace( '$', $r[ $depth ], $_json );

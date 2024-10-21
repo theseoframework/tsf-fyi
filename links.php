@@ -191,7 +191,7 @@ ICON;
 	</head>
 	<body>
 		<main>
-			<h1><a href=https://tsf.fyi/links.php><?php echo $icon; ?>TSF.fyi</a> registered endpoints</h1>
+			<h1><a href=https://tsf.fyi/links.php><?= $icon ?>TSF.fyi</a> registered endpoints</h1>
 			<p>
 				<em><strong>$</strong> = single directory wildcard. <strong>$$</strong> = unlimited directory wildcard.</em><br>
 				<em>Bolded endpoints are canonical, others are alternatives; either may trickle down for deeper links.</em>
@@ -257,7 +257,7 @@ ICON;
 				[
 					'<a href=https://theseoframework.com/>The SEO Framework</a>',
 					(int) abs( ( hrtime( true ) - $timer ) / 1e3 ),
-					bin2hex( random_bytes( 16 ) ),
+					bin2hex( random_bytes( 16 ) ), // This doesn't do anything useful but show that every request is unique.
 				]
 			);
 			?>
