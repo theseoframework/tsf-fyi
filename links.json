@@ -51,7 +51,8 @@
 			"common-update-issues": "https://kb.theseoframework.com/kb/common-plugin-update-issues/",
 			"pixelcounter": "https://kb.theseoframework.com/kb/what-are-pixel-counters/",
 			"structureddata": "https://kb.theseoframework.com/kb/structured-data-supported-by-the-seo-framework/",
-			"data": "https://kb.theseoframework.com/kb/data-stored-in-your-database/"
+			"data": "https://kb.theseoframework.com/kb/data-stored-in-your-database/",
+			"seo-bar": "https://kb.theseoframework.com/kb/what-is-the-seo-bar/"
 		},
 		"_default": "https://kb.theseoframework.com/kb/"
 	},
@@ -267,7 +268,6 @@
 	},
 	"support": {
 		"_deep": {
-			"codeable": "https://codeable.io/partners/the-seo-framework/",
 			"github": {
 				"_alt": [
 					"feature",
